@@ -1,10 +1,12 @@
 FROM node:18-alpine
 
-#Create Directory
+# Create app directory
 WORKDIR /usr/src/app
 
-COPY package.json yarn.lock ./
-RUN yarn install
 COPY . .
-CMD ["node","index.js"]
+
+RUN npm install
+
 EXPOSE 3000
+
+CMD [ "node", "index.js" ]
