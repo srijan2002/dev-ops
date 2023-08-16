@@ -1,11 +1,13 @@
 FROM node:18-alpine
 
 # Create app directory
-WORKDIR /usr/src/app
+WORKDIR /app/
 
-COPY . .
+COPY ./package.json /app/package.json
 
 RUN npm install
+
+COPY . /app/
 
 EXPOSE 3000
 
